@@ -135,3 +135,5 @@ D:\ngoding\roketin\dotnet-learn-2\api-learn\api-learn\obj\Debug\net8.0\refint\ap
 D:\ngoding\roketin\dotnet-learn-2\api-learn\api-learn\obj\Debug\net8.0\api-learn.pdb
 D:\ngoding\roketin\dotnet-learn-2\api-learn\api-learn\obj\Debug\net8.0\api-learn.genruntimeconfig.cache
 D:\ngoding\roketin\dotnet-learn-2\api-learn\api-learn\obj\Debug\net8.0\ref\api-learn.dll
+D:\ngoding\roketin\dotnet-learn-2\api-learn\api-learn\bin\Debug\net8.0\MySqlConnector.dll
+D:\ngoding\roketin\dotnet-learn-2\api-learn\api-learn\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll

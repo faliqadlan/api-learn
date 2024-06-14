@@ -9,10 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ApplicationDBContext>(Options =>
+builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
-    Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), 
-    x => x.EnableRetryOnFailure()
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+    new MySqlServerVersion(new Version(8, 0, 21)), // Specify the version of your MySQL server here
+    mySqlOptions => mySqlOptions.EnableRetryOnFailure()
     );
 });
 
