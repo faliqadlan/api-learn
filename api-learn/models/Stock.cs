@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace api_learn.models
 {
@@ -12,6 +13,8 @@ namespace api_learn.models
         public string Content { get; set; } = string.Empty;
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         public int? StockId { get; set; }
+
+        [ForeignKey("StockId")]
         public Stock? stock { get; set; }
     }
 }
