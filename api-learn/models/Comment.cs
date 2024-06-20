@@ -10,25 +10,15 @@ namespace api_learn.models
     public class Comment
     {
         public int Id { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Content { get; set; } = string.Empty;
+        public DateTime CreatedOn { get; set; } = DateTime.Now;
+        public int? StockId { get; set; }
 
-        [StringLength(255)] // Adjust the length as needed
-        public string Symbol { get; set; } = string.Empty;
+        [ForeignKey("StockId")]
+        public Stock? stock { get; set; }
 
-        [StringLength(255)] // Adjust the length as needed
-        public string CompanyName { get; set; } = string.Empty;
 
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal Purchase { get; set; }
-
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal LastDiv { get; set; }
-
-        [StringLength(255)] // Adjust the length as needed
-        public string Industry { get; set; } = string.Empty;
-
-        public long MarketCap { get; set; }
-
-        // Assuming this is a self-referencing one-to-many relationship
-        public List<Comment> Comments { get; set; } = new List<Comment>();
+       
     }
 }
