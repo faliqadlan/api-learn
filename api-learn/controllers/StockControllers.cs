@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api_learn.data;
+using api_learn.mappers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_learn.controllers
-{   
+{
     [Route("api/stock")]
     [ApiController]
     public class StockControllers : ControllerBase
-    {   
+    {
         private readonly ApplicationDBContext _context;
         public StockControllers(ApplicationDBContext context)
         {
@@ -20,7 +21,8 @@ namespace api_learn.controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var stocks = _context.Stocks.ToList();
+            var stocks = _context.Stocks.ToList()
+            .Select(s => s.ToStockDto());
             return Ok(stocks);
         }
 
@@ -32,7 +34,7 @@ namespace api_learn.controllers
             {
                 return NotFound();
             }
-            return Ok(stock);
+            return Ok(stock.ToStockDto());
         }
     }
 }
